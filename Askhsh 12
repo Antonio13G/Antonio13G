@@ -1,0 +1,19 @@
+#προσθηκη φακελου
+file = open(r"C:\Users\Gamer\Desktop\patsakis.txt") 
+
+#αδειες λιστες ωστε να γεμισουν
+myWords = [] 
+G = [] 
+
+
+for line in file.readlines():
+     for character in line:
+ 
+         myWords.append (255 - int((ord(character))))
+         
+
+for i in myWords:
+    G.append(chr(i))
+    #αναποδη σειρα χαρακτηρων
+reversed_G = G[::-1]
+print("".join(reversed_G))
