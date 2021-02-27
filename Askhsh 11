@@ -1,0 +1,35 @@
+#Δε μπορουσα να βρω το πιο συχνο key οποτε βρηκα το πιο συχνο γραμμα στο λεξικο επειδη δεν ηθελα να εχω κενη την ασκηση.Τις εντολες αυτες τις βρηκα μεσω καποιων λινκ.
+# importing the module 
+import pickle 
+  
+# opening file in write mode (binary) 
+file = open("dictionary.txt", "wb") 
+  
+my_dict = [
+   'red', 'green', 'black', 'black', 'white', 'black', 'eyes',
+   'white', 'black', 'orange', 'pink', 'red', 'red', 'white', 'orange',
+   'white', "black", 'pink', 'green', 'green', 'pink', 'green', 'pink',
+   'white', 'orange', "orange", 'red'
+]
+  
+# serializing dictionary  
+pickle.dump(my_dict, file) 
+  
+# closing the file 
+file.close() 
+  
+# reading the data from the file 
+with open('dictionary.txt', 'rb') as handle: 
+    data = handle.read() 
+  
+  
+# reconstructing the data as dictionary 
+d = pickle.loads(data) 
+
+print(d)
+from collections import Counter
+c = Counter()
+for d in my_dict:
+    c += Counter(d)
+
+print(c.most_common())
