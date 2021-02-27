@@ -1,0 +1,58 @@
+#συναρτηση fibonacci
+def fibonacci(n):
+    A=0
+    B=1
+    for i in range(n-2):
+        C=A+B
+        A=B
+        B=C
+    return C
+    #fibonacci(8)
+    #διαδικασια για το αν ο ορος ειναι πρωτος η οχι
+import random
+def power(a, n, p):
+     
+    res = 1
+
+    a = a % p  
+     
+    while n > 0:
+         
+        if n % 2:
+            res = (res * a) % p
+            n = n - 1
+        else:
+            a = (a ** 2) % p
+             
+            n = n // 2
+             
+    return res % p
+def isPrime(n,k=20):
+     
+    if n == 1 or n == 4:
+        return False
+    elif n == 2 or n == 3:
+        return True
+      
+    else:
+        for i in range(k):
+             
+            a = random.randint(2, n - 2)
+             
+            if power(a, n - 1, n) != 1:
+                return False
+                 
+    return True
+k = 3
+if isPrime(11):
+  print("true")
+else:
+  print("false")
+   
+if isPrime(15):
+  print("true")
+else:
+  print("false")
+  for i in range(3,101):
+    a=fibonacci(i)
+    #print(i,":",a,isPrime(a))
